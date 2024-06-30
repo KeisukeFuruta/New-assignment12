@@ -26,10 +26,7 @@ public class Book {
   }
 
   public String toString() {
-    return "{" +
-        "書名='" + title + '\'' +
-        ", 著者名='" + author + '\'' +
-        ", No=" + number +
-        '}';
+    return "検索結果：{" + "書名='" + title + '\'' + ", 著者名='" + author + '\'' + ", No=" + number
+        + '}';
   }
 }
