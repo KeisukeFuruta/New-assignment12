@@ -1,7 +1,6 @@
 package org.example;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Library {
 
@@ -13,25 +12,35 @@ public class Library {
 
   // 1: タイトル検索
   public List<Book> searchByTitle(String title) {
-    return bookList.stream()
+    List<Book> results = bookList.stream()
         .filter(book -> book.getTitle().equalsIgnoreCase(title))
-        .collect(Collectors.toList());
+        .toList();
+    if (results.isEmpty()) {
+      System.out.println("指定された書名の書籍は見つかりませんでした。");
+    }
+    return results;
   }
 
   // 2: 著者検索
   public List<Book> searchByAuthor(String author) {
-    return bookList.stream()
+    List<Book> results = bookList.stream()
         .filter(book -> book.getAuthor().equalsIgnoreCase(author))
-        .collect(Collectors.toList());
+        .toList();
+    if (results.isEmpty()) {
+      System.out.println("指定された著者の書籍は見つかりませんでした。");
+    }
+    return results;
   }
 
   // 3: 番号検索
   public List<Book> searchByNumber(int number) {
-    return bookList.stream()
+    List<Book> results = bookList.stream()
         .filter(book -> book.getNumber() == number)
-        .collect(Collectors.toList());
+        .toList();
+    if (results.isEmpty()) {
+      System.out.println("指定された番号の書籍は見つかりませんでした。");
+    }
+    return results;
   }
-
-
 }
 
